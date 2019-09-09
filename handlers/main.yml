@@ -1,0 +1,7 @@
+---
+- name: restart sockpuppet
+  become: true
+  systemd:
+    daemon_reload: true
+    name: sockpuppet
+    state: restarted

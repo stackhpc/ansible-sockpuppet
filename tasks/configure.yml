@@ -1,0 +1,9 @@
+---
+- name: Copy the sockpuppet systemd service file
+  template:
+    src: sockpuppet.service.j2
+    dest: /etc/systemd/system/sockpuppet.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart sockpuppet

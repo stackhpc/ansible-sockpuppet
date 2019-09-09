@@ -1,0 +1,19 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=sockpuppet
+After=network-online.target
+StartLimitInterval=0
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User={{ sockpuppet_system_user }}
+Group={{ sockpuppet_system_group }}
+ExecStart=/usr/local/bin/sockpuppet
+SyslogIdentifier=sockpuppet
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
