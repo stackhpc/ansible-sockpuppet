@@ -18,9 +18,10 @@ Deploy [sockpuppet](https://github.com/prometheus/sockpuppet) using ansible.
 
 All variables which can be overridden are stored in [defaults/main.yml](defaults/main.yml) file as well as in table below.
 
-| Name           | Default Value | Description                        |
-| -------------- | ------------- | -----------------------------------|
-| `sockpuppet_web_listen_address` | "0.0.0.0:30000" | Address on which sockpuppet will listen |
+| Name                            | Default Value | Description                             |
+| --------------------------------| ------------- | -----------------------------------     |
+| `sockpuppet_listen_address`     | "0.0.0.0"     | Address on which sockpuppet will listen |
+| `sockpuppet_listen_port`        | "30000"       | Port to listen on                       |
 
 ## Example
 

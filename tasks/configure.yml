@@ -7,3 +7,12 @@
     group: root
     mode: 0644
   notify: restart sockpuppet
+
+- name: Copy the sockpuppet config file
+  template:
+    src: "{{ sockpuppet_config_template }}"
+    dest: /etc/sockpuppet/config.py
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart sockpuppet
