@@ -2,3 +2,4 @@
 sockpuppet_listen_address: "0.0.0.0"
 sockpuppet_listen_port: "30000"
 sockpuppet_config_template: sockpuppet.config.j2
+sockpuppet_virtualenv_path: /opt/venv-sockpuppet

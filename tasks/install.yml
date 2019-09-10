@@ -1,16 +1,16 @@
 ---
-- name: Create the sockpuppet group
-  group:
-    name: "{{ sockpuppet_system_group }}"
-    state: present
-    system: true
 
-- name: Create the sockpuppet user
-  user:
-    name: "{{ sockpuppet_system_user }}"
-    groups: "{{ sockpuppet_system_group }}"
-    append: true
-    shell: /usr/sbin/nologin
-    system: true
-    createhome: false
-    home: /
+- name: install dependencies
+  package:
+    name: "{{ item }}"
+  become: true
+  with_items:
+    - python-virtualenv
+    - git
+    - gcc
+
+- name: Install sockpuppet into virtualenv
+  pip:
+    name: git+https://github.com/stackhpc/sockpuppet
+    virtualenv: "{{ sockpuppet_virtualenv_path }}"
+  become: true

@@ -8,9 +8,10 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
+EnvironmentFile=/etc/default/sockpuppet
 User={{ sockpuppet_system_user }}
 Group={{ sockpuppet_system_group }}
-ExecStart=/usr/local/bin/sockpuppet --polling-interval 10 --listen-address {{ sockpuppet_listen_address }} --port {{ sockpuppet_listen_port }}
+ExecStart={{ sockpuppet_virtualenv_path }}/bin/sockpuppet --polling-interval 10 --listen-address {{ sockpuppet_listen_address }} --port {{ sockpuppet_listen_port }}
 SyslogIdentifier=sockpuppet
 Restart=always
 RestartSec=5
