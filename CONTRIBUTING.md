@@ -6,10 +6,6 @@ appreciate your support!!
 
 ## Communication
 
-### IRC
-
-You can talk with us on #cloudalchemy channel on freenode.
-
 ### GitHub repositories
 
 Much of the issues, goals and ideas are tracked in the respective projects in GitHub. Please use this channel to report

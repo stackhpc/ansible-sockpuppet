@@ -8,10 +8,25 @@
     mode: 0644
   notify: restart sockpuppet
 
+- name: Create a /etc/sockpuppet if it does not exist
+  file:
+    path: /etc/sockpuppet
+    state: directory
+    mode: '0755'
+
 - name: Copy the sockpuppet config file
   template:
     src: "{{ sockpuppet_config_template }}"
     dest: /etc/sockpuppet/config.py
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart sockpuppet
+
+- name: Copy the sockpuppet enviroment file
+  template:
+    src: environment.j2
+    dest: /etc/default/sockpuppet
     owner: root
     group: root
     mode: 0644
