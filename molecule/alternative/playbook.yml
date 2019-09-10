@@ -3,4 +3,6 @@
   any_errors_fatal: true
   roles:
     - ansible-sockpuppet
-  vars: []
+  vars:
+    sockpuppet_listen_address: 30001
+    sockpuppet_virtualenv_path: /opt/another-venv
