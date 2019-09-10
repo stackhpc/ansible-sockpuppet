@@ -1,14 +1,14 @@
 # Ansible Role: sockpuppet
 
-[![Build Status](https://travis-ci.com/cloudalchemy/ansible-sockpuppet.svg?branch=master)](https://travis-ci.com/cloudalchemy/ansible-sockpuppet)
+[![Build Status](https://travis-ci.com/stackhpc/ansible-sockpuppet.svg?branch=master)](https://travis-ci.com/stackhpc/ansible-sockpuppet)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Ansible Role](https://img.shields.io/badge/ansible%20role-cloudalchemy.sockpuppet-blue.svg)](https://galaxy.ansible.com/cloudalchemy/sockpuppet/)
-[![GitHub tag](https://img.shields.io/github/tag/cloudalchemy/ansible-sockpuppet.svg)](https://github.com/cloudalchemy/ansible-sockpuppet/tags)
-[![IRC](https://img.shields.io/badge/irc.freenode.net-%23cloudalchemy-yellow.svg)](https://kiwiirc.com/nextclient/#ircs://irc.freenode.net/#cloudalchemy)
+[![Ansible Role](https://img.shields.io/badge/ansible%20role-stackhpc.sockpuppet-blue.svg)](https://galaxy.ansible.com/stackhpc/sockpuppet/)
+[![GitHub tag](https://img.shields.io/github/tag/stackhpc/ansible-sockpuppet.svg)](https://github.com/stackhpc/ansible-sockpuppet/tags)
+[![IRC](https://img.shields.io/badge/irc.freenode.net-%23stackhpc-yellow.svg)](https://kiwiirc.com/nextclient/#ircs://irc.freenode.net/#stackhpc)
 
 ## Description
 
-Deploy [sockpuppet](https://github.com/prometheus/sockpuppet) using ansible.
+Deploy [sockpuppet](https://github.com/stackhpc/sockpuppet) using ansible.
 
 ## Requirements
 
@@ -31,7 +31,7 @@ Use it in a playbook as follows:
 ```yaml
 - hosts: all
   roles:
-    - cloudalchemy.sockpuppet
+    - stackhpc.sockpuppet
 ```
 
 ### Demo site
