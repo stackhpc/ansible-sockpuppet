@@ -3,3 +3,5 @@
   strategy: debug
   roles:
     - ansible-sockpuppet
+  vars:
+    sockpuppet_version: 0.1.0

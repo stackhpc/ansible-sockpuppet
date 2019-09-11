@@ -3,3 +3,43 @@
   fail:
     msg: "This module only works with systemd"
   when: ansible_service_mgr != 'systemd'
+
+- name: Check if node_exporter is installed
+  stat:
+    path: "{{ sockpuppet_virtualenv_path }}/bin/sockpuppet"
+  register: __sockpuppet_is_installed
+  tags:
+    - sockpuppet_install
+
+- name: Gather currently installed sockpuppet version (if any)
+  command: "{{ sockpuppet_virtualenv_path }}/bin/sockpuppet --version"
+  args:
+    warn: false
+  changed_when: false
+  register: __sockpuppet_current_version_output
+  when: __sockpuppet_is_installed.stat.exists
+  tags:
+    - sockpuppet_install
+    - skip_ansible_lint
+- block:
+    - name: Get latest release
+      uri:
+        url: "https://api.github.com/repos/stackhpc/sockpuppet/releases/latest"
+        method: GET
+        return_content: true
+        status_code: 200
+        body_format: json
+        validate_certs: false
+        user: "{{ lookup('env', 'GH_USER') | default(omit) }}"
+        password: "{{ lookup('env', 'GH_TOKEN') | default(omit) }}"
+      no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+      register: _latest_release
+      until: _latest_release.status == 200
+      retries: 5
+
+    - name: "Set sockpuppet version to {{ _latest_release.json.tag_name }}"
+      set_fact:
+        sockpuppet_version: "{{ _latest_release.json.tag_name }}"
+  when: sockpuppet_version == "latest"
+  delegate_to: localhost
+  run_once: true

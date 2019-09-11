@@ -18,6 +18,7 @@
 
 - import_tasks: install.yml
   become: true
+  when: (not __sockpuppet_is_installed.stat.exists) or (__sockpuppet_current_version_output.stdout_lines[0].split(" ")[1] != sockpuppet_version)
   tags:
     - sockpuppet_install
 
