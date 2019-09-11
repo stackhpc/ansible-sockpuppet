@@ -11,4 +11,5 @@
     name: git+https://github.com/stackhpc/sockpuppet@{{ sockpuppet_version }}
     virtualenv: "{{ sockpuppet_virtualenv_path }}"
     state: latest  # noqa 403 we only import these tasks if version needs changing
+    virtualenv_command: "{{ sockpuppet_virtualenv_command }}"
   become: true
