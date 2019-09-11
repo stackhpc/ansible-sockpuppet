@@ -1,1 +1,6 @@
 ---
+sockpuppet_system_packages:
+  - python-dev
+  - git
+  - python-virtualenv
+  - gcc
