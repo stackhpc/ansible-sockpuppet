@@ -15,7 +15,7 @@ matrix:
   fast_finish: true
 install:
   - pip3 install tox-travis git-semver
-script: tox
+script: ls
 deploy:
   provider: script
   skip_cleanup: true
