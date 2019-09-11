@@ -3,7 +3,7 @@ dist: xenial
 sudo: required
 language: python
 python:
-  - 3.5
+  - 3.7
 cache: pip
 services:
   - docker
@@ -15,7 +15,7 @@ matrix:
   fast_finish: true
 install:
   - pip3 install tox-travis git-semver
-script: ls
+script: tox
 deploy:
   provider: script
   skip_cleanup: true
