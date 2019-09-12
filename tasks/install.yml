@@ -13,3 +13,4 @@
     state: latest  # noqa 403 we only import these tasks if version needs changing
     virtualenv_command: "{{ sockpuppet_virtualenv_command }}"
   become: true
+  notify: restart sockpuppet
