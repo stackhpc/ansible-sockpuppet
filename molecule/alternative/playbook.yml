@@ -4,5 +4,6 @@
   roles:
     - ansible-sockpuppet
   vars:
-    sockpuppet_listen_address: 30001
+    sockpuppet_listen_address: 127.0.0.1
+    sockpuppet_listen_port: 30001
     sockpuppet_virtualenv_path: /opt/another-venv

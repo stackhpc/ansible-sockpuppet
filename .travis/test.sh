@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-tox -- molecule test --all
+tox -- molecule test --all --debug

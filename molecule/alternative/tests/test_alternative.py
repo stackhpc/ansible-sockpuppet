@@ -18,7 +18,7 @@ def test_directories(host):
 def test_files(host):
     files = [
         "/etc/systemd/system/sockpuppet.service",
-        "/opt/venv-sockpuppet/bin/sockpuppet"
+        "/opt/another-venv/bin/sockpuppet"
     ]
     for file in files:
         f = host.file(file)
