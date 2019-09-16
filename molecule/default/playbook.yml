@@ -1,5 +1,5 @@
 ---
 - hosts: all
-  strategy: debug
+  any_errors_fatal: true
   roles:
     - ansible-sockpuppet
