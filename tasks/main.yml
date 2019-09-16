@@ -15,8 +15,8 @@
 
 - name: Gather variables for each operating system
   include_vars: "{{ item.module_args.path }}"
-  when: "{{ item.exists }}"
-  with_items: stat_result
+  when: item.exists
+  with_items: "{{ stat_result }}"
   tags:
     - sockpuppet_install
     - sockpuppet_configure
