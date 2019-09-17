@@ -4,7 +4,7 @@
     msg: "This module only works with systemd"
   when: ansible_service_mgr != 'systemd'
 
-- name: Check if node_exporter is installed
+- name: Check if sockpuppet is installed
   stat:
     path: "{{ sockpuppet_virtualenv_path }}/bin/sockpuppet"
   register: __sockpuppet_is_installed

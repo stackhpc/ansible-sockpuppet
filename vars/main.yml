@@ -7,5 +7,6 @@ sockpuppet_system_packages:
   - git
   - python-virtualenv
   - gcc
+  - make
 
 sockpuppet_virtualenv_command: virtualenv
