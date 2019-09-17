@@ -1,0 +1,9 @@
+---
+
+sockpuppet_system_packages:
+  - python3-devel
+  - git
+  - python-virtualenv
+  - gcc
+
+sockpuppet_virtualenv_command: /usr/bin/python3 -m venv

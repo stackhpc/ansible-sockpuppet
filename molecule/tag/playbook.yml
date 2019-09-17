@@ -1,0 +1,7 @@
+---
+- hosts: all
+  strategy: debug
+  roles:
+    - ansible-sockpuppet
+  vars:
+    sockpuppet_version: 0.2.0

@@ -4,13 +4,13 @@
   package:
     name: "{{ item }}"
   become: true
-  with_items:
-    - python-virtualenv
-    - git
-    - gcc
+  with_items: "{{ sockpuppet_system_packages }}"
 
 - name: Install sockpuppet into virtualenv
   pip:
-    name: git+https://github.com/stackhpc/sockpuppet
+    name: git+https://github.com/stackhpc/sockpuppet@{{ sockpuppet_version }}
     virtualenv: "{{ sockpuppet_virtualenv_path }}"
+    state: latest  # noqa 403 we only import these tasks if version needs changing
+    virtualenv_command: "{{ sockpuppet_virtualenv_command }}"
   become: true
+  notify: restart sockpuppet

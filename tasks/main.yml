@@ -1,10 +1,12 @@
 ---
+
 - name: Gather variables for each operating system
   include_vars: "{{ item }}"
-  with_first_found:
+  with_items:
+    - "{{ ansible_os_family | lower }}.yml"
     - "{{ ansible_distribution_file_variety | lower }}.yml"
     - "{{ ansible_distribution | lower }}.yml"
-    - "{{ ansible_os_family | lower }}.yml"
+  failed_when: false
   tags:
     - sockpuppet_install
     - sockpuppet_configure
@@ -18,6 +20,8 @@
 
 - import_tasks: install.yml
   become: true
+  # python3 uses stdout? whereas python2 use stderr?
+  when: (not __sockpuppet_is_installed.stat.exists) or ((__sockpuppet_current_version_output.stdout_lines or __sockpuppet_current_version_output.stderr_lines)[0].split(" ")[1] != sockpuppet_version)
   tags:
     - sockpuppet_install
 

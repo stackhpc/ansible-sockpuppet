@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_directories(host):
     dirs = [
-        "/opt/another-venv"
+        "/opt/venv-sockpuppet"
     ]
     for dir in dirs:
         d = host.file(dir)
@@ -18,7 +18,7 @@ def test_directories(host):
 def test_files(host):
     files = [
         "/etc/systemd/system/sockpuppet.service",
-        "/opt/another-venv/bin/sockpuppet"
+        "/opt/venv-sockpuppet/bin/sockpuppet"
     ]
     for file in files:
         f = host.file(file)
@@ -33,17 +33,8 @@ def test_service(host):
 
 def test_socket(host):
     sockets = [
-        "tcp://127.0.0.1:30001"
-    ]
-    for socket in sockets:
-        s = host.socket(socket)
-        assert s.is_listening
-
-
-def test_socket_negative(host):
-    sockets = [
         "tcp://127.0.0.1:30000"
     ]
     for socket in sockets:
         s = host.socket(socket)
-        assert not s.is_listening
+        assert s.is_listening
